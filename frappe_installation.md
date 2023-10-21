@@ -43,7 +43,7 @@ sudo apt install -y redis-server
 curl -s https://deb.nodesource.com/setup_18.x | sudo bash
 sudo apt-get install -y nodejs
 ```
-## 1.9. Yarn package관리자 설치
+## 1.9. Yarn 패키지 관리자 설치
 ```
 curl -sL https://dl.yarnpkg.com/debian/pubkey.gpg | gpg --dearmor | sudo tee /usr/share/keyrings/yarnkey.gpg >/dev/null
 echo "deb [signed-by=/usr/share/keyrings/yarnkey.gpg] https://dl.yarnpkg.com/debian stable main" | sudo tee /etc/apt/sources.list.d/yarn.list
@@ -62,8 +62,7 @@ pip install gunicorn
 
 ## 1.12. PDF 변환용 모듈 설치
 ```
-sudo apt-get install -y xvfb libfontconfig wkhtmltopdf
-apt-get install poppler-utils
+sudo apt-get install -y xvfb libfontconfig wkhtmltopdf poppler-utils
 ```
 
 ## 1.13. frappe-bench 설치
@@ -194,7 +193,7 @@ sudo apt-get install -y unixodbc unixodbc-dev libodbc1 odbcinst1debian2 tdsodbc
 sudo apt-get install -y freetds-bin freetds-common freetds-dev libct4 libsybdb5
 ```
 
-## 5.1. ODBC 설정
+## 4.1. ODBC 설정
 
 > /etc/odbcinst.ini
 
@@ -215,7 +214,7 @@ Driver=/usr/lib/x86_64-linux-gnu/odbc/libtdsodbc.so
 UsageCount=1
 ```
 
-## 5.2 DSN 설정 (사용시)
+## 4.2 DSN 설정 (사용시)
 > /etc/odbc.ini
 ```
 [MSSQL]
@@ -230,34 +229,34 @@ UserName=[아이디]
 Password=[비밀번호]
 ```
 
-# 6. 기타
+# 5. 기타
 
-## 6.1 Production Mode 설정
+## 5.1 Production Mode 설정
 모든 설정이 완료된 상태에서 실행하면 사이트에 대한 nginx 설정파일 갱신되며, site-enabled의 default 링크는 삭제됨
 ```
 sudo bench setup production [사용자]
 ```
 
-## 6.2 홈 권한 설정
+## 5.2 홈 권한 설정
 Production 모드 설정 후 Assets 디렉토리에 접근이 안 될 경우 home user 폴더 권한 설정 변경(Others 실행추가)
 ```
 sudo chmod 701 /home/[사용자]
 ```
 
-## 6.3 sudo 유저 추가
+## 5.3 sudo 유저 추가
 ```
 sudo usermod -aG sudo [사용자]
 sudo passwd [사용자]
 ```
 
-## 6.4 폰트 설치
+## 5.4 폰트 설치
 레포트를 PDF로 출력할 때 한글 깨짐이 발생하는 경우 한글 폰트 설치
 ```
 font_master.zip 파일에서 /etc/fonts와 /usr/share/fonts 폴더를 변경 할 것
 
 ```
 
-## 6.5 Frappe 캐시 삭제
+## 5.5 Frappe 캐시 삭제
 bench console에서 아래 명령어 실행
 ```
 frappe.cache().flushall()
