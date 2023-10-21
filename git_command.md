@@ -1,13 +1,15 @@
 ## Git 기본 명령어
 - 기본 용어 설명
-> HEAD(헤드) : 마지막 커밋 스냅 샷, 다음 커밋의 부모 커밋
-<br/>index(인덱스) : 다음에 커밋 할 스냅 샷
-<br/>Working Directory(작업디렉토리) : 샌드박스
+> Git에서는 아래 3개의 Tree(트리) 데이터를 이용하여 버전 관리를 수행 함
+<br/> HEAD(헤드) : 마지막 커밋 스냅 샷, 다음 커밋의 부모 커밋
+<br/> Index(인덱스) : 다음에 커밋 할 스냅 샷, Staging Area에 저장.
+<br/> Working Directory(작업 디렉토리) : 샌드박스
+<br/> Git Directory : Git 로컬 저장소, Staging Area와 커밋 데이터의 영구 저장공간
 
 ```
 git init
 ```
-폴더에 git 로컬 저장소를 생성, .git 폴더가 생성됨
+폴더에 Git Directory를 생성, .git 폴더가 생성됨
 
 ```
 git status
@@ -31,7 +33,7 @@ git commit
 ```
 인덱스 트리에 등록된 내용을 저장소에 영구적으로 저장하고 헤드가 해당 스냅샷을 가르키게 됨.
 > -m "코멘트" : 텍스트 편집기를 사용하지 않고 커밋 코멘트 추가
-<br/> --ammend : 마지막 커밋 내용에 현재 수정 사항 반영
+<br/> --amend : 마지막 커밋 내용에 현재 수정 사항 반영
 
 ```
 git reset --mixed HEAD~ or [hash값]
@@ -57,7 +59,8 @@ git log
 ```
 git diff
 ```
-작업 디렉토리와 인덱스 트리 사이의 변경 사항 비교
+두 트리 개체의 차이 비교
+> 
 
 ```
 git rebase -i HEAD~n # HEAD 에서부터 n 번째 커밋 수정
@@ -131,6 +134,12 @@ git remote add origin https://github.com/[계정정보]/[저장소명]
 git remote -v
 ```
 현재 설정된 원격 저장소 정보 확인
+
+```
+git branch --set-upstream-to=[원격트래킹 브랜치]
+git branch -u [원격트래킹 브랜치]
+```
+현재 브랜치를 원격 트래킹 브랜치와 매핑 함.
 
 ```
 git push or git push origin [저장소명]
