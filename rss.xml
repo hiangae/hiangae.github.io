@@ -1,4 +1,157 @@
-<?xml version="1.0" encoding="UTF-8"?><rss xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:content="http://purl.org/rss/1.0/modules/content/" xmlns:atom="http://www.w3.org/2005/Atom" version="2.0"><channel><title><![CDATA[RSS Feed of B.Y.HEO's Blog]]></title><description><![CDATA[개인 자료 정리 블로그]]></description><link>https://hiangae.github.io</link><generator>GatsbyJS</generator><lastBuildDate>Sat, 21 Oct 2023 13:12:15 GMT</lastBuildDate><item><title><![CDATA[Git 기본 사용법]]></title><description><![CDATA[Git 기본 명령어 기본 용어 설명 Git에서는 아래 3개의 Tree(트리) 데이터를 이용하여 버전 관리를 수행 함
+<?xml version="1.0" encoding="UTF-8"?><rss xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:content="http://purl.org/rss/1.0/modules/content/" xmlns:atom="http://www.w3.org/2005/Atom" version="2.0"><channel><title><![CDATA[RSS Feed of B.Y.HEO's Blog]]></title><description><![CDATA[개인 자료 정리 블로그]]></description><link>https://hiangae.github.io</link><generator>GatsbyJS</generator><lastBuildDate>Thu, 09 Nov 2023 12:04:03 GMT</lastBuildDate><item><title><![CDATA[Frappe 설치]]></title><description><![CDATA[Frappe Framework 설치 : Ubuntu 22.04기준 1. 필수 프로그램 설치 1.1. apt repository 업데이트 1.2. 파이썬 Repo 설치 1.3. 파이썬 설치 3.10 1.4. PIP 설치 1.5. 파이썬 가상환경 설치…]]></description><link>https://hiangae.github.io/frappe-installation/</link><guid isPermaLink="false">https://hiangae.github.io/frappe-installation/</guid><pubDate>Sat, 21 Oct 2023 00:00:00 GMT</pubDate><content:encoded>&lt;h1&gt;Frappe Framework 설치 : Ubuntu 22.04기준&lt;/h1&gt;
+&lt;h1&gt;1. 필수 프로그램 설치&lt;/h1&gt;
+&lt;h2&gt;1.1. apt repository 업데이트&lt;/h2&gt;
+&lt;div class=&quot;gatsby-highlight&quot; data-language=&quot;text&quot;&gt;&lt;pre class=&quot;language-text&quot;&gt;&lt;code class=&quot;language-text&quot;&gt;sudo apt-get update&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;h2&gt;1.2. 파이썬 Repo 설치&lt;/h2&gt;
+&lt;div class=&quot;gatsby-highlight&quot; data-language=&quot;text&quot;&gt;&lt;pre class=&quot;language-text&quot;&gt;&lt;code class=&quot;language-text&quot;&gt;sudo add-apt-repository -y ppa:deadsnakes/ppa&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;h2&gt;1.3. 파이썬 설치 3.10&lt;/h2&gt;
+&lt;div class=&quot;gatsby-highlight&quot; data-language=&quot;text&quot;&gt;&lt;pre class=&quot;language-text&quot;&gt;&lt;code class=&quot;language-text&quot;&gt;sudo apt-get install -y python3.10&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;h2&gt;1.4. PIP 설치&lt;/h2&gt;
+&lt;div class=&quot;gatsby-highlight&quot; data-language=&quot;text&quot;&gt;&lt;pre class=&quot;language-text&quot;&gt;&lt;code class=&quot;language-text&quot;&gt;sudo apt install -y python3-pip&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;h2&gt;1.5. 파이썬 가상환경 설치&lt;/h2&gt;
+&lt;div class=&quot;gatsby-highlight&quot; data-language=&quot;text&quot;&gt;&lt;pre class=&quot;language-text&quot;&gt;&lt;code class=&quot;language-text&quot;&gt;sudo apt install -y python3.10-venv&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;h2&gt;1.6. 마리아 DB 설치&lt;/h2&gt;
+&lt;div class=&quot;gatsby-highlight&quot; data-language=&quot;text&quot;&gt;&lt;pre class=&quot;language-text&quot;&gt;&lt;code class=&quot;language-text&quot;&gt;sudo apt install -y mariadb-server-10.6
+sudo apt install -y libmysqlclient-dev&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;h2&gt;1.7. 레디스 서버 설치&lt;/h2&gt;
+&lt;div class=&quot;gatsby-highlight&quot; data-language=&quot;text&quot;&gt;&lt;pre class=&quot;language-text&quot;&gt;&lt;code class=&quot;language-text&quot;&gt;sudo apt install -y redis-server&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;h2&gt;1.8. Nodejs 설치&lt;/h2&gt;
+&lt;div class=&quot;gatsby-highlight&quot; data-language=&quot;text&quot;&gt;&lt;pre class=&quot;language-text&quot;&gt;&lt;code class=&quot;language-text&quot;&gt;curl -s https://deb.nodesource.com/setup_18.x | sudo bash
+sudo apt-get install -y nodejs&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;h2&gt;1.9. Yarn 패키지 관리자 설치&lt;/h2&gt;
+&lt;div class=&quot;gatsby-highlight&quot; data-language=&quot;text&quot;&gt;&lt;pre class=&quot;language-text&quot;&gt;&lt;code class=&quot;language-text&quot;&gt;curl -sL https://dl.yarnpkg.com/debian/pubkey.gpg | gpg --dearmor | sudo tee /usr/share/keyrings/yarnkey.gpg &gt;/dev/null
+echo &quot;deb [signed-by=/usr/share/keyrings/yarnkey.gpg] https://dl.yarnpkg.com/debian stable main&quot; | sudo tee /etc/apt/sources.list.d/yarn.list
+sudo apt-get update &amp;amp;&amp;amp; sudo apt-get install yarn&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;h2&gt;1.10. nginx 및 supervisor 설치&lt;/h2&gt;
+&lt;div class=&quot;gatsby-highlight&quot; data-language=&quot;text&quot;&gt;&lt;pre class=&quot;language-text&quot;&gt;&lt;code class=&quot;language-text&quot;&gt;sudo apt install nginx supervisor&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;h2&gt;1.11. gunicorn wsgi gateway 인터페이스 서버설치&lt;/h2&gt;
+&lt;div class=&quot;gatsby-highlight&quot; data-language=&quot;text&quot;&gt;&lt;pre class=&quot;language-text&quot;&gt;&lt;code class=&quot;language-text&quot;&gt;pip install gunicorn&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;h2&gt;1.12. PDF 변환용 모듈 설치&lt;/h2&gt;
+&lt;div class=&quot;gatsby-highlight&quot; data-language=&quot;text&quot;&gt;&lt;pre class=&quot;language-text&quot;&gt;&lt;code class=&quot;language-text&quot;&gt;sudo apt-get install -y xvfb libfontconfig wkhtmltopdf poppler-utils&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;h2&gt;1.13. frappe-bench 설치&lt;/h2&gt;
+&lt;div class=&quot;gatsby-highlight&quot; data-language=&quot;text&quot;&gt;&lt;pre class=&quot;language-text&quot;&gt;&lt;code class=&quot;language-text&quot;&gt;sudo pip install frappe-bench&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;h1&gt;2. 프로그램 설정&lt;/h1&gt;
+&lt;h2&gt;2.1. Maria DB 설정&lt;/h2&gt;
+&lt;h3&gt;서버 설정&lt;/h3&gt;
+&lt;p&gt;unicode 사용으로 변경&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;sudo nano /etc/mysql/mariadb.conf.d/50-server.cnf&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;div class=&quot;gatsby-highlight&quot; data-language=&quot;text&quot;&gt;&lt;pre class=&quot;language-text&quot;&gt;&lt;code class=&quot;language-text&quot;&gt;[mysqld] 
+character-set-client-handshake = FALSE
+character-set-server=utf8mb4
+collation-server=utf8mb4_unicode_ci&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;blockquote&gt;
+&lt;p&gt;sudo nano /etc/mysql/mariadb.conf.d/50-mysql-clients.cnf&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;div class=&quot;gatsby-highlight&quot; data-language=&quot;text&quot;&gt;&lt;pre class=&quot;language-text&quot;&gt;&lt;code class=&quot;language-text&quot;&gt;default-character-set = utf8mb4&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;h3&gt;DB 시작&lt;/h3&gt;
+&lt;blockquote&gt;
+&lt;p&gt;sudo /etc/init.d/mariadb start
+sudo mysql&lt;em&gt;secure&lt;/em&gt;installation&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;div class=&quot;gatsby-highlight&quot; data-language=&quot;text&quot;&gt;&lt;pre class=&quot;language-text&quot;&gt;&lt;code class=&quot;language-text&quot;&gt;1. root password : Root 비밀번호 입력
+2. unix_socket : N 입력
+3. root password : Y or N 선택 입력
+4. remove anonymous users : Y 입력
+5. disallow root login remotely : Y or N 선택 입력
+6. remove test db : Y 입력
+7. reload privilege tables : Y 입력&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;h3&gt;DB 재시작&lt;/h3&gt;
+&lt;div class=&quot;gatsby-highlight&quot; data-language=&quot;text&quot;&gt;&lt;pre class=&quot;language-text&quot;&gt;&lt;code class=&quot;language-text&quot;&gt;sudo /etc/init.d/mariadb restart
+sudo /etc/init.d/mariadb status&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;h3&gt;DB 비번 변경시 (참고)&lt;/h3&gt;
+&lt;div class=&quot;gatsby-highlight&quot; data-language=&quot;text&quot;&gt;&lt;pre class=&quot;language-text&quot;&gt;&lt;code class=&quot;language-text&quot;&gt;sudo service mariadb start --skip-grant-tables --skip-networking
+sudo mysql -u root
+ALTER USER &apos;root&apos;@&apos;localhost&apos; IDENTIFIED BY &apos;새 비밀번호&apos;;
+FLUSH PRIVILEGES;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;h2&gt;2.2. frappe-bench 초기화&lt;/h2&gt;
+&lt;div class=&quot;gatsby-highlight&quot; data-language=&quot;text&quot;&gt;&lt;pre class=&quot;language-text&quot;&gt;&lt;code class=&quot;language-text&quot;&gt;bench init frappe-bench&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;h2&gt;2.3 Supervisor 설정&lt;/h2&gt;
+&lt;h3&gt;설정 링크 생성&lt;/h3&gt;
+&lt;div class=&quot;gatsby-highlight&quot; data-language=&quot;text&quot;&gt;&lt;pre class=&quot;language-text&quot;&gt;&lt;code class=&quot;language-text&quot;&gt;cd ~/frappe-bench
+bench setup supervisor --yes
+sudo ln -s `pwd`/config/supervisor.conf /etc/supervisor/conf.d/frappe-bench.conf&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;h3&gt;서비스 등록&lt;/h3&gt;
+&lt;div class=&quot;gatsby-highlight&quot; data-language=&quot;text&quot;&gt;&lt;pre class=&quot;language-text&quot;&gt;&lt;code class=&quot;language-text&quot;&gt;sudo systemctl enable supervisor&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;h2&gt;2.4. Nginx 설정&lt;/h2&gt;
+&lt;h3&gt;설정파일 생성 및 링크 생성&lt;/h3&gt;
+&lt;div class=&quot;gatsby-highlight&quot; data-language=&quot;text&quot;&gt;&lt;pre class=&quot;language-text&quot;&gt;&lt;code class=&quot;language-text&quot;&gt;cd ~/frappe-bench
+bench setup nginx
+sudo ln -s `pwd`/config/nginx.conf /etc/nginx/conf.d/frappe-bench.conf&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;h3&gt;서비스 등록&lt;/h3&gt;
+&lt;div class=&quot;gatsby-highlight&quot; data-language=&quot;text&quot;&gt;&lt;pre class=&quot;language-text&quot;&gt;&lt;code class=&quot;language-text&quot;&gt;sudo systemctl reload nginx&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;blockquote&gt;
+&lt;p&gt;파일 검증 : sudo nginx -t&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;h2&gt;2.5 Redis 설정&lt;/h2&gt;
+&lt;blockquote&gt;
+&lt;p&gt;/etc/sysctl.conf&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;div class=&quot;gatsby-highlight&quot; data-language=&quot;text&quot;&gt;&lt;pre class=&quot;language-text&quot;&gt;&lt;code class=&quot;language-text&quot;&gt;vm.overcommit_memory = 1&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;h1&gt;3. 앱 생성 및 사이트 등록&lt;/h1&gt;
+&lt;h2&gt;3.1 새 앱 생성&lt;/h2&gt;
+&lt;div class=&quot;gatsby-highlight&quot; data-language=&quot;text&quot;&gt;&lt;pre class=&quot;language-text&quot;&gt;&lt;code class=&quot;language-text&quot;&gt;bench new-app 앱명&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;h2&gt;3.2 새 사이트 생성&lt;/h2&gt;
+&lt;div class=&quot;gatsby-highlight&quot; data-language=&quot;text&quot;&gt;&lt;pre class=&quot;language-text&quot;&gt;&lt;code class=&quot;language-text&quot;&gt;bench new-site 사이트명&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;h2&gt;3.3 기본 사이트 등록&lt;/h2&gt;
+&lt;div class=&quot;gatsby-highlight&quot; data-language=&quot;text&quot;&gt;&lt;pre class=&quot;language-text&quot;&gt;&lt;code class=&quot;language-text&quot;&gt;bench use 사이트명&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;h2&gt;3.5 사이트에 앱 설치&lt;/h2&gt;
+&lt;div class=&quot;gatsby-highlight&quot; data-language=&quot;text&quot;&gt;&lt;pre class=&quot;language-text&quot;&gt;&lt;code class=&quot;language-text&quot;&gt;bench --site [사이트명] install-app [설치할 앱이름]&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;h2&gt;3.4 개발 모드로 실행&lt;/h2&gt;
+&lt;div class=&quot;gatsby-highlight&quot; data-language=&quot;text&quot;&gt;&lt;pre class=&quot;language-text&quot;&gt;&lt;code class=&quot;language-text&quot;&gt;bench start&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;h1&gt;5. ODBC 및 FreeDTS 설치&lt;/h1&gt;
+&lt;div class=&quot;gatsby-highlight&quot; data-language=&quot;text&quot;&gt;&lt;pre class=&quot;language-text&quot;&gt;&lt;code class=&quot;language-text&quot;&gt;sudo apt-get install -y unixodbc unixodbc-dev libodbc1 odbcinst1debian2 tdsodbc
+sudo apt-get install -y freetds-bin freetds-common freetds-dev libct4 libsybdb5&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;h2&gt;4.1. ODBC 설정&lt;/h2&gt;
+&lt;blockquote&gt;
+&lt;p&gt;/etc/odbcinst.ini&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;div class=&quot;gatsby-highlight&quot; data-language=&quot;text&quot;&gt;&lt;pre class=&quot;language-text&quot;&gt;&lt;code class=&quot;language-text&quot;&gt;[ODBC]
+Trace=No
+TraceFile=/tmp/odbc.log
+
+[MariaDB Unicode]
+Driver=libmaodbc.so
+Description=MariaDB Connector/ODBC(Unicode)
+Threading=0
+UsageCount=1
+
+[FreeTDS]
+Description=FreeTDS
+Driver=/usr/lib/x86_64-linux-gnu/odbc/libtdsodbc.so
+UsageCount=1&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;h2&gt;4.2 DSN 설정 (사용시)&lt;/h2&gt;
+&lt;blockquote&gt;
+&lt;p&gt;/etc/odbc.ini&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;div class=&quot;gatsby-highlight&quot; data-language=&quot;text&quot;&gt;&lt;pre class=&quot;language-text&quot;&gt;&lt;code class=&quot;language-text&quot;&gt;[MSSQL]
+Description=MSSQL Connect on FreeTDS
+Driver=FreeTDS
+Server=[서버 주소]
+Port=[서버포트]
+Database=[DB명]
+Trace=yes
+TraceFile=/tmp/mssql.log
+UserName=[아이디]
+Password=[비밀번호]&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;h1&gt;5. 기타&lt;/h1&gt;
+&lt;h2&gt;5.1 Production Mode 설정&lt;/h2&gt;
+&lt;p&gt;모든 설정이 완료된 상태에서 실행하면 사이트에 대한 nginx 설정파일 갱신되며, site-enabled의 default 링크는 삭제됨&lt;/p&gt;
+&lt;div class=&quot;gatsby-highlight&quot; data-language=&quot;text&quot;&gt;&lt;pre class=&quot;language-text&quot;&gt;&lt;code class=&quot;language-text&quot;&gt;sudo bench setup production [사용자]&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;h2&gt;5.2 홈 권한 설정&lt;/h2&gt;
+&lt;p&gt;Production 모드 설정 후 Assets 디렉토리에 접근이 안 될 경우 home user 폴더 권한 설정 변경(Others 실행추가)&lt;/p&gt;
+&lt;div class=&quot;gatsby-highlight&quot; data-language=&quot;text&quot;&gt;&lt;pre class=&quot;language-text&quot;&gt;&lt;code class=&quot;language-text&quot;&gt;sudo chmod 701 /home/[사용자]&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;h2&gt;5.3 sudo 유저 추가, NoPasswd 설정&lt;/h2&gt;
+&lt;div class=&quot;gatsby-highlight&quot; data-language=&quot;text&quot;&gt;&lt;pre class=&quot;language-text&quot;&gt;&lt;code class=&quot;language-text&quot;&gt;sudo usermod -aG sudo [사용자]
+sudo passwd [사용자]
+echo &quot;$USER ALL=(ALL:ALL) NOPASSWD: ALL&quot; | sudo tee /etc/sudoers.d/$USER&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;h2&gt;5.4 폰트 설치&lt;/h2&gt;
+&lt;p&gt;레포트를 PDF로 출력할 때 한글 깨짐이 발생하는 경우 한글 폰트 설치&lt;/p&gt;
+&lt;div class=&quot;gatsby-highlight&quot; data-language=&quot;text&quot;&gt;&lt;pre class=&quot;language-text&quot;&gt;&lt;code class=&quot;language-text&quot;&gt;font_master.zip 파일에서 /etc/fonts와 /usr/share/fonts 폴더를 변경 할 것&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;h2&gt;5.5 Frappe 캐시 삭제&lt;/h2&gt;
+&lt;p&gt;bench console에서 아래 명령어 실행&lt;/p&gt;
+&lt;div class=&quot;gatsby-highlight&quot; data-language=&quot;text&quot;&gt;&lt;pre class=&quot;language-text&quot;&gt;&lt;code class=&quot;language-text&quot;&gt;frappe.cache().flushall()&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;</content:encoded></item><item><title><![CDATA[Git 기본 사용법]]></title><description><![CDATA[Git 기본 명령어 기본 용어 설명 Git에서는 아래 3개의 Tree(트리) 데이터를 이용하여 버전 관리를 수행 함
  HEAD(헤드) : 마지막 커밋 스냅 샷, 다음 커밋의 부모 커밋
  Index(인덱스) : 다음에 커밋 할 스냅 샷, Staging…]]></description><link>https://hiangae.github.io/git-command/</link><guid isPermaLink="false">https://hiangae.github.io/git-command/</guid><pubDate>Sat, 21 Oct 2023 00:00:00 GMT</pubDate><content:encoded>&lt;h2&gt;Git 기본 명령어&lt;/h2&gt;
 &lt;ul&gt;
@@ -118,156 +271,4 @@ git branch -u [원격트래킹 브랜치]&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
 &lt;div class=&quot;gatsby-highlight&quot; data-language=&quot;text&quot;&gt;&lt;pre class=&quot;language-text&quot;&gt;&lt;code class=&quot;language-text&quot;&gt;git pull&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
 &lt;p&gt;원격 저장소의 내용을 업데이트하고 로컬 저장소에 변동 사항을 병합함, git fetch + git merge&lt;/p&gt;
 &lt;div class=&quot;gatsby-highlight&quot; data-language=&quot;text&quot;&gt;&lt;pre class=&quot;language-text&quot;&gt;&lt;code class=&quot;language-text&quot;&gt;git clone [원격저장소주소] [저장위치]&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
-&lt;p&gt;원격 저장소를 로컬에 복제&lt;/p&gt;</content:encoded></item><item><title><![CDATA[Frappe 설치]]></title><description><![CDATA[Frappe Framework 설치 : Ubuntu 22.04기준 1. 필수 프로그램 설치 1.1. apt repository 업데이트 1.2. 파이썬 Repo 설치 1.3. 파이썬 설치 3.10 1.4. PIP 설치 1.5. 파이썬 가상환경 설치…]]></description><link>https://hiangae.github.io/frappe-installation/</link><guid isPermaLink="false">https://hiangae.github.io/frappe-installation/</guid><pubDate>Sat, 21 Oct 2023 00:00:00 GMT</pubDate><content:encoded>&lt;h2&gt;Frappe Framework 설치 : Ubuntu 22.04기준&lt;/h2&gt;
-&lt;h2&gt;1. 필수 프로그램 설치&lt;/h2&gt;
-&lt;h3&gt;1.1. apt repository 업데이트&lt;/h3&gt;
-&lt;div class=&quot;gatsby-highlight&quot; data-language=&quot;text&quot;&gt;&lt;pre class=&quot;language-text&quot;&gt;&lt;code class=&quot;language-text&quot;&gt;sudo apt-get update&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
-&lt;h3&gt;1.2. 파이썬 Repo 설치&lt;/h3&gt;
-&lt;div class=&quot;gatsby-highlight&quot; data-language=&quot;text&quot;&gt;&lt;pre class=&quot;language-text&quot;&gt;&lt;code class=&quot;language-text&quot;&gt;sudo add-apt-repository -y ppa:deadsnakes/ppa&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
-&lt;h3&gt;1.3. 파이썬 설치 3.10&lt;/h3&gt;
-&lt;div class=&quot;gatsby-highlight&quot; data-language=&quot;text&quot;&gt;&lt;pre class=&quot;language-text&quot;&gt;&lt;code class=&quot;language-text&quot;&gt;sudo apt-get install -y python3.10&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
-&lt;h3&gt;1.4. PIP 설치&lt;/h3&gt;
-&lt;div class=&quot;gatsby-highlight&quot; data-language=&quot;text&quot;&gt;&lt;pre class=&quot;language-text&quot;&gt;&lt;code class=&quot;language-text&quot;&gt;sudo apt install -y python3-pip&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
-&lt;h3&gt;1.5. 파이썬 가상환경 설치&lt;/h3&gt;
-&lt;div class=&quot;gatsby-highlight&quot; data-language=&quot;text&quot;&gt;&lt;pre class=&quot;language-text&quot;&gt;&lt;code class=&quot;language-text&quot;&gt;sudo apt install -y python3.10-venv&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
-&lt;h3&gt;1.6. 마리아 DB 설치&lt;/h3&gt;
-&lt;div class=&quot;gatsby-highlight&quot; data-language=&quot;text&quot;&gt;&lt;pre class=&quot;language-text&quot;&gt;&lt;code class=&quot;language-text&quot;&gt;sudo apt install -y mariadb-server-10.6
-sudo apt install -y libmysqlclient-dev&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
-&lt;h3&gt;1.7. 레디스 서버 설치&lt;/h3&gt;
-&lt;div class=&quot;gatsby-highlight&quot; data-language=&quot;text&quot;&gt;&lt;pre class=&quot;language-text&quot;&gt;&lt;code class=&quot;language-text&quot;&gt;sudo apt install -y redis-server&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
-&lt;h3&gt;1.8. Nodejs 설치&lt;/h3&gt;
-&lt;div class=&quot;gatsby-highlight&quot; data-language=&quot;text&quot;&gt;&lt;pre class=&quot;language-text&quot;&gt;&lt;code class=&quot;language-text&quot;&gt;curl -s https://deb.nodesource.com/setup_18.x | sudo bash
-sudo apt-get install -y nodejs&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
-&lt;h3&gt;1.9. Yarn 패키지 관리자 설치&lt;/h3&gt;
-&lt;div class=&quot;gatsby-highlight&quot; data-language=&quot;text&quot;&gt;&lt;pre class=&quot;language-text&quot;&gt;&lt;code class=&quot;language-text&quot;&gt;curl -sL https://dl.yarnpkg.com/debian/pubkey.gpg | gpg --dearmor | sudo tee /usr/share/keyrings/yarnkey.gpg &gt;/dev/null
-echo &quot;deb [signed-by=/usr/share/keyrings/yarnkey.gpg] https://dl.yarnpkg.com/debian stable main&quot; | sudo tee /etc/apt/sources.list.d/yarn.list
-sudo apt-get update &amp;amp;&amp;amp; sudo apt-get install yarn&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
-&lt;h3&gt;1.10. nginx 및 supervisor 설치&lt;/h3&gt;
-&lt;div class=&quot;gatsby-highlight&quot; data-language=&quot;text&quot;&gt;&lt;pre class=&quot;language-text&quot;&gt;&lt;code class=&quot;language-text&quot;&gt;sudo apt install nginx supervisor&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
-&lt;h3&gt;1.11. gunicorn wsgi gateway 인터페이스 서버설치&lt;/h3&gt;
-&lt;div class=&quot;gatsby-highlight&quot; data-language=&quot;text&quot;&gt;&lt;pre class=&quot;language-text&quot;&gt;&lt;code class=&quot;language-text&quot;&gt;pip install gunicorn&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
-&lt;h3&gt;1.12. PDF 변환용 모듈 설치&lt;/h3&gt;
-&lt;div class=&quot;gatsby-highlight&quot; data-language=&quot;text&quot;&gt;&lt;pre class=&quot;language-text&quot;&gt;&lt;code class=&quot;language-text&quot;&gt;sudo apt-get install -y xvfb libfontconfig wkhtmltopdf poppler-utils&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
-&lt;h3&gt;1.13. frappe-bench 설치&lt;/h3&gt;
-&lt;div class=&quot;gatsby-highlight&quot; data-language=&quot;text&quot;&gt;&lt;pre class=&quot;language-text&quot;&gt;&lt;code class=&quot;language-text&quot;&gt;sudo pip install frappe-bench&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
-&lt;h2&gt;2. 프로그램 설정&lt;/h2&gt;
-&lt;h3&gt;2.1. Maria DB 설정&lt;/h3&gt;
-&lt;h4&gt;서버 설정&lt;/h4&gt;
-&lt;p&gt;unicode 사용으로 변경&lt;/p&gt;
-&lt;blockquote&gt;
-&lt;p&gt;sudo nano /etc/mysql/mariadb.conf.d/50-server.cnf&lt;/p&gt;
-&lt;/blockquote&gt;
-&lt;div class=&quot;gatsby-highlight&quot; data-language=&quot;text&quot;&gt;&lt;pre class=&quot;language-text&quot;&gt;&lt;code class=&quot;language-text&quot;&gt;[mysqld] 
-character-set-client-handshake = FALSE
-character-set-server=utf8mb4
-collation-server=utf8mb4_unicode_ci&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
-&lt;blockquote&gt;
-&lt;p&gt;sudo nano /etc/mysql/mariadb.conf.d/50-mysql-clients.cnf&lt;/p&gt;
-&lt;/blockquote&gt;
-&lt;div class=&quot;gatsby-highlight&quot; data-language=&quot;text&quot;&gt;&lt;pre class=&quot;language-text&quot;&gt;&lt;code class=&quot;language-text&quot;&gt;default-character-set = utf8mb4&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
-&lt;h4&gt;DB 시작&lt;/h4&gt;
-&lt;blockquote&gt;
-&lt;p&gt;sudo /etc/init.d/mariadb start
-sudo mysql&lt;em&gt;secure&lt;/em&gt;installation&lt;/p&gt;
-&lt;/blockquote&gt;
-&lt;div class=&quot;gatsby-highlight&quot; data-language=&quot;text&quot;&gt;&lt;pre class=&quot;language-text&quot;&gt;&lt;code class=&quot;language-text&quot;&gt;1. root password : Root 비밀번호 입력
-2. unix_socket : N 입력
-3. root password : Y or N 선택 입력
-4. remove anonymous users : Y 입력
-5. disallow root login remotely : Y or N 선택 입력
-6. remove test db : Y 입력
-7. reload privilege tables : Y 입력&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
-&lt;h4&gt;DB 재시작&lt;/h4&gt;
-&lt;div class=&quot;gatsby-highlight&quot; data-language=&quot;text&quot;&gt;&lt;pre class=&quot;language-text&quot;&gt;&lt;code class=&quot;language-text&quot;&gt;sudo /etc/init.d/mariadb restart
-sudo /etc/init.d/mariadb status&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
-&lt;h4&gt;DB 비번 변경시 (참고)&lt;/h4&gt;
-&lt;div class=&quot;gatsby-highlight&quot; data-language=&quot;text&quot;&gt;&lt;pre class=&quot;language-text&quot;&gt;&lt;code class=&quot;language-text&quot;&gt;sudo service mariadb start --skip-grant-tables --skip-networking
-sudo mysql -u root
-ALTER USER &apos;root&apos;@&apos;localhost&apos; IDENTIFIED BY &apos;새 비밀번호&apos;;
-FLUSH PRIVILEGES;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
-&lt;h3&gt;2.2. frappe-bench 초기화&lt;/h3&gt;
-&lt;div class=&quot;gatsby-highlight&quot; data-language=&quot;text&quot;&gt;&lt;pre class=&quot;language-text&quot;&gt;&lt;code class=&quot;language-text&quot;&gt;bench init frappe-bench&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
-&lt;h3&gt;2.3 Supervisor 설정&lt;/h3&gt;
-&lt;h4&gt;설정 링크 생성&lt;/h4&gt;
-&lt;div class=&quot;gatsby-highlight&quot; data-language=&quot;text&quot;&gt;&lt;pre class=&quot;language-text&quot;&gt;&lt;code class=&quot;language-text&quot;&gt;cd ~/frappe-bench
-bench setup supervisor --yes
-sudo ln -s `pwd`/config/supervisor.conf /etc/supervisor/conf.d/frappe-bench.conf&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
-&lt;h4&gt;서비스 등록&lt;/h4&gt;
-&lt;div class=&quot;gatsby-highlight&quot; data-language=&quot;text&quot;&gt;&lt;pre class=&quot;language-text&quot;&gt;&lt;code class=&quot;language-text&quot;&gt;sudo systemctl enable supervisor&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
-&lt;h3&gt;2.4. Nginx 설정&lt;/h3&gt;
-&lt;h4&gt;설정파일 생성 및 링크 생성&lt;/h4&gt;
-&lt;div class=&quot;gatsby-highlight&quot; data-language=&quot;text&quot;&gt;&lt;pre class=&quot;language-text&quot;&gt;&lt;code class=&quot;language-text&quot;&gt;cd ~/frappe-bench
-bench setup nginx
-sudo ln -s `pwd`/config/nginx.conf /etc/nginx/conf.d/frappe-bench.conf&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
-&lt;h4&gt;서비스 등록&lt;/h4&gt;
-&lt;div class=&quot;gatsby-highlight&quot; data-language=&quot;text&quot;&gt;&lt;pre class=&quot;language-text&quot;&gt;&lt;code class=&quot;language-text&quot;&gt;sudo systemctl reload nginx&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
-&lt;blockquote&gt;
-&lt;p&gt;파일 검증 : sudo nginx -t&lt;/p&gt;
-&lt;/blockquote&gt;
-&lt;h3&gt;2.5 Redis 설정&lt;/h3&gt;
-&lt;blockquote&gt;
-&lt;p&gt;/etc/sysctl.conf&lt;/p&gt;
-&lt;/blockquote&gt;
-&lt;div class=&quot;gatsby-highlight&quot; data-language=&quot;text&quot;&gt;&lt;pre class=&quot;language-text&quot;&gt;&lt;code class=&quot;language-text&quot;&gt;vm.overcommit_memory = 1&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
-&lt;h2&gt;3. 앱 생성 및 사이트 등록&lt;/h2&gt;
-&lt;h3&gt;3.1 새 앱 생성&lt;/h3&gt;
-&lt;div class=&quot;gatsby-highlight&quot; data-language=&quot;text&quot;&gt;&lt;pre class=&quot;language-text&quot;&gt;&lt;code class=&quot;language-text&quot;&gt;bench new-app 앱명&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
-&lt;h3&gt;3.2 새 사이트 생성&lt;/h3&gt;
-&lt;div class=&quot;gatsby-highlight&quot; data-language=&quot;text&quot;&gt;&lt;pre class=&quot;language-text&quot;&gt;&lt;code class=&quot;language-text&quot;&gt;bench new-site 사이트명&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
-&lt;h3&gt;3.3 기본 사이트 등록&lt;/h3&gt;
-&lt;div class=&quot;gatsby-highlight&quot; data-language=&quot;text&quot;&gt;&lt;pre class=&quot;language-text&quot;&gt;&lt;code class=&quot;language-text&quot;&gt;bench use 사이트명&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
-&lt;h3&gt;3.5 사이트에 앱 설치&lt;/h3&gt;
-&lt;div class=&quot;gatsby-highlight&quot; data-language=&quot;text&quot;&gt;&lt;pre class=&quot;language-text&quot;&gt;&lt;code class=&quot;language-text&quot;&gt;bench --site [사이트명] install-app [설치할 앱이름]&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
-&lt;h3&gt;3.4 개발 모드로 실행&lt;/h3&gt;
-&lt;div class=&quot;gatsby-highlight&quot; data-language=&quot;text&quot;&gt;&lt;pre class=&quot;language-text&quot;&gt;&lt;code class=&quot;language-text&quot;&gt;bench start&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
-&lt;h2&gt;4. ODBC 및 FreeDTS 설치&lt;/h2&gt;
-&lt;div class=&quot;gatsby-highlight&quot; data-language=&quot;text&quot;&gt;&lt;pre class=&quot;language-text&quot;&gt;&lt;code class=&quot;language-text&quot;&gt;sudo apt-get install -y unixodbc unixodbc-dev libodbc1 odbcinst1debian2 tdsodbc
-sudo apt-get install -y freetds-bin freetds-common freetds-dev libct4 libsybdb5&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
-&lt;h3&gt;4.1. ODBC 설정&lt;/h3&gt;
-&lt;blockquote&gt;
-&lt;p&gt;/etc/odbcinst.ini&lt;/p&gt;
-&lt;/blockquote&gt;
-&lt;div class=&quot;gatsby-highlight&quot; data-language=&quot;text&quot;&gt;&lt;pre class=&quot;language-text&quot;&gt;&lt;code class=&quot;language-text&quot;&gt;[ODBC]
-Trace=No
-TraceFile=/tmp/odbc.log
-
-[MariaDB Unicode]
-Driver=libmaodbc.so
-Description=MariaDB Connector/ODBC(Unicode)
-Threading=0
-UsageCount=1
-
-[FreeTDS]
-Description=FreeTDS
-Driver=/usr/lib/x86_64-linux-gnu/odbc/libtdsodbc.so
-UsageCount=1&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
-&lt;h3&gt;4.2 DSN 설정 (사용시)&lt;/h3&gt;
-&lt;blockquote&gt;
-&lt;p&gt;/etc/odbc.ini&lt;/p&gt;
-&lt;/blockquote&gt;
-&lt;div class=&quot;gatsby-highlight&quot; data-language=&quot;text&quot;&gt;&lt;pre class=&quot;language-text&quot;&gt;&lt;code class=&quot;language-text&quot;&gt;[MSSQL]
-Description=MSSQL Connect on FreeTDS
-Driver=FreeTDS
-Server=[서버 주소]
-Port=[서버포트]
-Database=[DB명]
-Trace=yes
-TraceFile=/tmp/mssql.log
-UserName=[아이디]
-Password=[비밀번호]&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
-&lt;h2&gt;5. 기타&lt;/h2&gt;
-&lt;h3&gt;5.1 Production Mode 설정&lt;/h3&gt;
-&lt;p&gt;모든 설정이 완료된 상태에서 실행하면 사이트에 대한 nginx 설정파일 갱신되며, site-enabled의 default 링크는 삭제됨&lt;/p&gt;
-&lt;div class=&quot;gatsby-highlight&quot; data-language=&quot;text&quot;&gt;&lt;pre class=&quot;language-text&quot;&gt;&lt;code class=&quot;language-text&quot;&gt;sudo bench setup production [사용자]&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
-&lt;h3&gt;5.2 홈 권한 설정&lt;/h3&gt;
-&lt;p&gt;Production 모드 설정 후 Assets 디렉토리에 접근이 안 될 경우 home user 폴더 권한 설정 변경(Others 실행추가)&lt;/p&gt;
-&lt;div class=&quot;gatsby-highlight&quot; data-language=&quot;text&quot;&gt;&lt;pre class=&quot;language-text&quot;&gt;&lt;code class=&quot;language-text&quot;&gt;sudo chmod 701 /home/[사용자]&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
-&lt;h3&gt;5.3 sudo 유저 추가&lt;/h3&gt;
-&lt;div class=&quot;gatsby-highlight&quot; data-language=&quot;text&quot;&gt;&lt;pre class=&quot;language-text&quot;&gt;&lt;code class=&quot;language-text&quot;&gt;sudo usermod -aG sudo [사용자]
-sudo passwd [사용자]&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
-&lt;h3&gt;5.4 폰트 설치&lt;/h3&gt;
-&lt;p&gt;레포트를 PDF로 출력할 때 한글 깨짐이 발생하는 경우 한글 폰트 설치&lt;/p&gt;
-&lt;div class=&quot;gatsby-highlight&quot; data-language=&quot;text&quot;&gt;&lt;pre class=&quot;language-text&quot;&gt;&lt;code class=&quot;language-text&quot;&gt;font_master.zip 파일에서 /etc/fonts와 /usr/share/fonts 폴더를 변경 할 것&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
-&lt;h3&gt;5.5 Frappe 캐시 삭제&lt;/h3&gt;
-&lt;p&gt;bench console에서 아래 명령어 실행&lt;/p&gt;
-&lt;div class=&quot;gatsby-highlight&quot; data-language=&quot;text&quot;&gt;&lt;pre class=&quot;language-text&quot;&gt;&lt;code class=&quot;language-text&quot;&gt;frappe.cache().flushall()&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;</content:encoded></item></channel></rss>
+&lt;p&gt;원격 저장소를 로컬에 복제&lt;/p&gt;</content:encoded></item></channel></rss>
