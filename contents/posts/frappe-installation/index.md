@@ -254,10 +254,11 @@ Production 모드 설정 후 Assets 디렉토리에 접근이 안 될 경우 hom
 sudo chmod 701 /home/[사용자]
 ```
 
-## 5.3 sudo 유저 추가
+## 5.3 sudo 유저 추가, NoPasswd 설정
 ```
 sudo usermod -aG sudo [사용자]
 sudo passwd [사용자]
+echo "$USER ALL=(ALL:ALL) NOPASSWD: ALL" | sudo tee /etc/sudoers.d/$USER
 ```
 
 ## 5.4 폰트 설치
