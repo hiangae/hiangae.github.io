@@ -273,3 +273,9 @@ bench console에서 아래 명령어 실행
 ```
 frappe.cache().flushall()
 ```
+
+## 5.6 Bench 업데이트
+bench update --bench 명령어가 삭제되어 아래 명령어로 실행
+```
+pip install --upgrade frappe-bench
+```

@@ -3,7 +3,7 @@
   "private": false,
   "description": "gatsby-starter-hoodie is a gatsby theme developed for developers to write tech blogs.",
   "homepage": "https://hiangae.github.io/gatsby-starter-hoodie/",
-  "version": "0.2.0",
+  "version": "0.2.1",
   "author": "Hudi",
   "dependencies": {
     "babel-eslint": "^10.1.0",
