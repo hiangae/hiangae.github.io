@@ -1,4 +1,124 @@
-<?xml version="1.0" encoding="UTF-8"?><rss xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:content="http://purl.org/rss/1.0/modules/content/" xmlns:atom="http://www.w3.org/2005/Atom" version="2.0"><channel><title><![CDATA[RSS Feed of B.Y.HEO's Blog]]></title><description><![CDATA[개인 자료 정리 블로그]]></description><link>https://hiangae.github.io</link><generator>GatsbyJS</generator><lastBuildDate>Thu, 09 Nov 2023 12:04:03 GMT</lastBuildDate><item><title><![CDATA[Frappe 설치]]></title><description><![CDATA[Frappe Framework 설치 : Ubuntu 22.04기준 1. 필수 프로그램 설치 1.1. apt repository 업데이트 1.2. 파이썬 Repo 설치 1.3. 파이썬 설치 3.10 1.4. PIP 설치 1.5. 파이썬 가상환경 설치…]]></description><link>https://hiangae.github.io/frappe-installation/</link><guid isPermaLink="false">https://hiangae.github.io/frappe-installation/</guid><pubDate>Sat, 21 Oct 2023 00:00:00 GMT</pubDate><content:encoded>&lt;h1&gt;Frappe Framework 설치 : Ubuntu 22.04기준&lt;/h1&gt;
+<?xml version="1.0" encoding="UTF-8"?><rss xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:content="http://purl.org/rss/1.0/modules/content/" xmlns:atom="http://www.w3.org/2005/Atom" version="2.0"><channel><title><![CDATA[RSS Feed of B.Y.HEO's Blog]]></title><description><![CDATA[개인 자료 정리 블로그]]></description><link>https://hiangae.github.io</link><generator>GatsbyJS</generator><lastBuildDate>Tue, 23 Apr 2024 13:37:59 GMT</lastBuildDate><item><title><![CDATA[Git 기본 사용법]]></title><description><![CDATA[Git 기본 명령어 기본 용어 설명 Git에서는 아래 3개의 Tree(트리) 데이터를 이용하여 버전 관리를 수행 함
+ HEAD(헤드) : 마지막 커밋 스냅 샷, 다음 커밋의 부모 커밋
+ Index(인덱스) : 다음에 커밋 할 스냅 샷, Staging…]]></description><link>https://hiangae.github.io/git-command/</link><guid isPermaLink="false">https://hiangae.github.io/git-command/</guid><pubDate>Sat, 21 Oct 2023 00:00:00 GMT</pubDate><content:encoded>&lt;h2&gt;Git 기본 명령어&lt;/h2&gt;
+&lt;ul&gt;
+&lt;li&gt;
+&lt;p&gt;기본 용어 설명&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;Git에서는 아래 3개의 Tree(트리) 데이터를 이용하여 버전 관리를 수행 함
+&lt;br/&gt; HEAD(헤드) : 마지막 커밋 스냅 샷, 다음 커밋의 부모 커밋
+&lt;br/&gt; Index(인덱스) : 다음에 커밋 할 스냅 샷, Staging Area에 저장.
+&lt;br/&gt; Working Directory(작업 디렉토리) : 샌드박스
+&lt;br/&gt; Git Directory : Git 로컬 저장소, Staging Area와 커밋 데이터의 영구 저장공간&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;div class=&quot;gatsby-highlight&quot; data-language=&quot;text&quot;&gt;&lt;pre class=&quot;language-text&quot;&gt;&lt;code class=&quot;language-text&quot;&gt;git init&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;폴더에 Git Directory를 생성, .git 폴더가 생성됨&lt;/p&gt;
+&lt;div class=&quot;gatsby-highlight&quot; data-language=&quot;text&quot;&gt;&lt;pre class=&quot;language-text&quot;&gt;&lt;code class=&quot;language-text&quot;&gt;git status&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;git의 저장소 트리 상태에 대한 비교 정보를 출력, 작업 디렉토리와 인덱스, 인덱스와 헤드를 비교하여 출력함.
+&lt;br&gt; 작업 디렉토리와 인덱스와의 차이는 빨간색으로, 인덱스와 헤드와의 차이는 녹색으로 표시됨&lt;/p&gt;
+&lt;div class=&quot;gatsby-highlight&quot; data-language=&quot;text&quot;&gt;&lt;pre class=&quot;language-text&quot;&gt;&lt;code class=&quot;language-text&quot;&gt;.gitignore&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;현재 작업 디렉토리에서 관리할 필요가 없는 파일 혹은 폴더 정보를 설정, 해당 파일에 포함된 대상은 버전 관리에서 제외됨
+(static 파일, node 등 library 공통모듈 등)&lt;/p&gt;
+&lt;div class=&quot;gatsby-highlight&quot; data-language=&quot;text&quot;&gt;&lt;pre class=&quot;language-text&quot;&gt;&lt;code class=&quot;language-text&quot;&gt;git add -A or git add .&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;작업 디렉토리의 변경 내용으로 인덱스 트리에 반영(스냅 샷)&lt;/p&gt;
+&lt;div class=&quot;gatsby-highlight&quot; data-language=&quot;text&quot;&gt;&lt;pre class=&quot;language-text&quot;&gt;&lt;code class=&quot;language-text&quot;&gt;git commit&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;인덱스 트리에 등록된 내용을 저장소에 영구적으로 저장하고 헤드가 해당 스냅샷을 가르키게 됨.&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;-m &quot;코멘트&quot; : 텍스트 편집기를 사용하지 않고 커밋 코멘트 추가
+&lt;br/&gt; --amend : 마지막 커밋 내용에 현재 수정 사항 반영&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;div class=&quot;gatsby-highlight&quot; data-language=&quot;text&quot;&gt;&lt;pre class=&quot;language-text&quot;&gt;&lt;code class=&quot;language-text&quot;&gt;git reset --mixed HEAD~ or [hash값]&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;헤드가 가리키는 커밋 포인터를 이동 시킨 후(롤백), 인덱스의 스냅 샷을 헤드가 가리키는 커밋으로 업데이트 함. git commit과 git add 명령을 롤백 &lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;--mixed : 플래그가 없는 경우 기본 동작
+&lt;br/&gt; --soft : 헤드의 포인터만 이동시키고 인덱스 스냅샷을 업데이트 하지는 않음
+&lt;br/&gt; --hard : 워킹 디렉토리의 내용까지 업데이트, 커밋하지 않은 모든 내용 삭제됨 (주의~)
+&lt;br/&gt; HEAD^ : 최신 커밋, HEAD~n : n번째 커밋으로 롤백
+&lt;br/&gt; hash값 : 해시 값에 해당하는 특정 커밋으로 롤백&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;div class=&quot;gatsby-highlight&quot; data-language=&quot;text&quot;&gt;&lt;pre class=&quot;language-text&quot;&gt;&lt;code class=&quot;language-text&quot;&gt;git revert hash&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;특정 커밋으로 되돌리는 명령어, 커밋 취소에 대한 이력이 추가 됨, 원격 저장소에 커밋 후 푸시된 내용을 취소시 협업 중인 경우 revert로 실행. 로컬에서만 취소하는 경우 reset 사용&lt;/p&gt;
+&lt;div class=&quot;gatsby-highlight&quot; data-language=&quot;text&quot;&gt;&lt;pre class=&quot;language-text&quot;&gt;&lt;code class=&quot;language-text&quot;&gt;git log&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;커밋 관련 로그 표시, 현재 HEAD와 브랜 커밋 정보 표시&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;-p : 수정된 전체 내용 확인&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;div class=&quot;gatsby-highlight&quot; data-language=&quot;text&quot;&gt;&lt;pre class=&quot;language-text&quot;&gt;&lt;code class=&quot;language-text&quot;&gt;git diff&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;두 트리 개체의 차이 비교&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;/blockquote&gt;
+&lt;div class=&quot;gatsby-highlight&quot; data-language=&quot;text&quot;&gt;&lt;pre class=&quot;language-text&quot;&gt;&lt;code class=&quot;language-text&quot;&gt;git rebase -i HEAD~n # HEAD 에서부터 n 번째 커밋 수정&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;여러개의 커밋 메시지 수정&lt;/p&gt;
+&lt;h2&gt;브랜치 관리&lt;/h2&gt;
+&lt;div class=&quot;gatsby-highlight&quot; data-language=&quot;text&quot;&gt;&lt;pre class=&quot;language-text&quot;&gt;&lt;code class=&quot;language-text&quot;&gt;git branch&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;로컬 브랜치 정보 출력, 브랜치 이름 앞에 * 표시된 브랜치가 checkout된 브랜치 임&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;-r : 원격 브랜치 정보 확인
+&lt;br/&gt; -a : 로컬 및 원격 브랜치 전체 확인 &lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;div class=&quot;gatsby-highlight&quot; data-language=&quot;text&quot;&gt;&lt;pre class=&quot;language-text&quot;&gt;&lt;code class=&quot;language-text&quot;&gt;git branch [branch명]&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;새로운 브랜치 생성&lt;/p&gt;
+&lt;div class=&quot;gatsby-highlight&quot; data-language=&quot;text&quot;&gt;&lt;pre class=&quot;language-text&quot;&gt;&lt;code class=&quot;language-text&quot;&gt;git branch -d [branch명]&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;해당 브랜치 삭제&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;-D : 강제 삭제 플래그, 병합하지 않은 브랜치도 삭제 가능&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;div class=&quot;gatsby-highlight&quot; data-language=&quot;text&quot;&gt;&lt;pre class=&quot;language-text&quot;&gt;&lt;code class=&quot;language-text&quot;&gt;git checkout [branch명]&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;현재 작업 폴더를 해당 브랜치로 전환&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;-b : 브랜치 생성과 함께 해당 브랜치로 전환
+&lt;br/&gt; -t origin/[브랜치명] : 원격 브랜치를 가져와서 로컬 브랜치를 생성후 전환&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;div class=&quot;gatsby-highlight&quot; data-language=&quot;text&quot;&gt;&lt;pre class=&quot;language-text&quot;&gt;&lt;code class=&quot;language-text&quot;&gt;git merge [branch명]&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;지정한 브랜치와 현재 브랜치를 병합함&lt;/p&gt;
+&lt;h2&gt;임시 저장&lt;/h2&gt;
+&lt;div class=&quot;gatsby-highlight&quot; data-language=&quot;text&quot;&gt;&lt;pre class=&quot;language-text&quot;&gt;&lt;code class=&quot;language-text&quot;&gt;git stash&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;현재 작업 중인 변경사항을 커밋하지 않고 저장&lt;/p&gt;
+&lt;div class=&quot;gatsby-highlight&quot; data-language=&quot;text&quot;&gt;&lt;pre class=&quot;language-text&quot;&gt;&lt;code class=&quot;language-text&quot;&gt;git stash list&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;stash 했던 목록을 표시함&lt;/p&gt;
+&lt;div class=&quot;gatsby-highlight&quot; data-language=&quot;text&quot;&gt;&lt;pre class=&quot;language-text&quot;&gt;&lt;code class=&quot;language-text&quot;&gt;git stash drop [stash명]&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;저장한 stash를 삭제, 목록에 표시된 stash 중에 삭제 할 stash를 지정 &lt;/p&gt;
+&lt;h2&gt;원격 저장소 관련&lt;/h2&gt;
+&lt;ul&gt;
+&lt;li&gt;기본 용어 설명&lt;/li&gt;
+&lt;/ul&gt;
+&lt;blockquote&gt;
+&lt;p&gt;Remote branch : 원격 저장소의 브랜치
+&lt;br/&gt; Remote Tracking breanch : 원격 저장소의 브랜치를 참조하는 원격 브랜치의 복사본, 로컬 저장소에 위치 (origin/main)
+&lt;br/&gt; Tracking branch : 로컬 브랜치중에 원격 브랜치를 추적하는 브랜치&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;div class=&quot;gatsby-highlight&quot; data-language=&quot;text&quot;&gt;&lt;pre class=&quot;language-text&quot;&gt;&lt;code class=&quot;language-text&quot;&gt;git remote add origin https://github.com/[계정정보]/[저장소명]&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;원격 저장소를 설치하고 설치된 정보로 위 명령어 실행&lt;/p&gt;
+&lt;div class=&quot;gatsby-highlight&quot; data-language=&quot;text&quot;&gt;&lt;pre class=&quot;language-text&quot;&gt;&lt;code class=&quot;language-text&quot;&gt;git remote -v&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;현재 설정된 원격 저장소 정보 확인&lt;/p&gt;
+&lt;div class=&quot;gatsby-highlight&quot; data-language=&quot;text&quot;&gt;&lt;pre class=&quot;language-text&quot;&gt;&lt;code class=&quot;language-text&quot;&gt;git branch --set-upstream-to=[원격트래킹 브랜치]
+git branch -u [원격트래킹 브랜치]&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;현재 브랜치를 원격 트래킹 브랜치와 매핑 함.&lt;/p&gt;
+&lt;div class=&quot;gatsby-highlight&quot; data-language=&quot;text&quot;&gt;&lt;pre class=&quot;language-text&quot;&gt;&lt;code class=&quot;language-text&quot;&gt;git push or git push origin [저장소명]&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;원격 저장소를 현재 브랜치로 업데이트 함.&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;-f : 강제 업데이트&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;div class=&quot;gatsby-highlight&quot; data-language=&quot;text&quot;&gt;&lt;pre class=&quot;language-text&quot;&gt;&lt;code class=&quot;language-text&quot;&gt;git push origin :[브랜치명]&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;원격 브랜치 삭제&lt;/p&gt;
+&lt;div class=&quot;gatsby-highlight&quot; data-language=&quot;text&quot;&gt;&lt;pre class=&quot;language-text&quot;&gt;&lt;code class=&quot;language-text&quot;&gt;git remote update&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;모든 원격 저장소의 원격 참조 브랜치를 업데이트함. &lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;-p : 참조되지 않은 사항 삭제&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;div class=&quot;gatsby-highlight&quot; data-language=&quot;text&quot;&gt;&lt;pre class=&quot;language-text&quot;&gt;&lt;code class=&quot;language-text&quot;&gt;git fetch&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;현재 로컬에 위치한 브랜치가 참조하는 원격 저장소의 모든 원격 참조 브랜치 정보를 업데이트 함.&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;-p : 참조되지 않은 사항 삭제
+&lt;br/&gt; --all : 모든 원격 저장소의 브랜치 정보를 업데이트
+&lt;br/&gt; * 원격 저장소에 있는 브랜치를 로컬에도 자동 생성, 단, 커밋 내용은 병합하지 않음&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;div class=&quot;gatsby-highlight&quot; data-language=&quot;text&quot;&gt;&lt;pre class=&quot;language-text&quot;&gt;&lt;code class=&quot;language-text&quot;&gt;git pull&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;원격 저장소의 내용을 업데이트하고 로컬 저장소에 변동 사항을 병합함, git fetch + git merge&lt;/p&gt;
+&lt;div class=&quot;gatsby-highlight&quot; data-language=&quot;text&quot;&gt;&lt;pre class=&quot;language-text&quot;&gt;&lt;code class=&quot;language-text&quot;&gt;git clone [원격저장소주소] [저장위치]&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;원격 저장소를 로컬에 복제&lt;/p&gt;</content:encoded></item><item><title><![CDATA[Frappe 설치]]></title><description><![CDATA[Frappe Framework 설치 : Ubuntu 22.04기준 1. 필수 프로그램 설치 1.1. apt repository 업데이트 1.2. 파이썬 Repo 설치 1.3. 파이썬 설치 3.10 1.4. PIP 설치 1.5. 파이썬 가상환경 설치…]]></description><link>https://hiangae.github.io/frappe-installation/</link><guid isPermaLink="false">https://hiangae.github.io/frappe-installation/</guid><pubDate>Sat, 21 Oct 2023 00:00:00 GMT</pubDate><content:encoded>&lt;h1&gt;Frappe Framework 설치 : Ubuntu 22.04기준&lt;/h1&gt;
 &lt;h1&gt;1. 필수 프로그램 설치&lt;/h1&gt;
 &lt;h2&gt;1.1. apt repository 업데이트&lt;/h2&gt;
 &lt;div class=&quot;gatsby-highlight&quot; data-language=&quot;text&quot;&gt;&lt;pre class=&quot;language-text&quot;&gt;&lt;code class=&quot;language-text&quot;&gt;sudo apt-get update&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
@@ -151,124 +271,7 @@ echo &quot;$USER ALL=(ALL:ALL) NOPASSWD: ALL&quot; | sudo tee /etc/sudoers.d/$US
 &lt;div class=&quot;gatsby-highlight&quot; data-language=&quot;text&quot;&gt;&lt;pre class=&quot;language-text&quot;&gt;&lt;code class=&quot;language-text&quot;&gt;font_master.zip 파일에서 /etc/fonts와 /usr/share/fonts 폴더를 변경 할 것&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
 &lt;h2&gt;5.5 Frappe 캐시 삭제&lt;/h2&gt;
 &lt;p&gt;bench console에서 아래 명령어 실행&lt;/p&gt;
-&lt;div class=&quot;gatsby-highlight&quot; data-language=&quot;text&quot;&gt;&lt;pre class=&quot;language-text&quot;&gt;&lt;code class=&quot;language-text&quot;&gt;frappe.cache().flushall()&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;</content:encoded></item><item><title><![CDATA[Git 기본 사용법]]></title><description><![CDATA[Git 기본 명령어 기본 용어 설명 Git에서는 아래 3개의 Tree(트리) 데이터를 이용하여 버전 관리를 수행 함
- HEAD(헤드) : 마지막 커밋 스냅 샷, 다음 커밋의 부모 커밋
- Index(인덱스) : 다음에 커밋 할 스냅 샷, Staging…]]></description><link>https://hiangae.github.io/git-command/</link><guid isPermaLink="false">https://hiangae.github.io/git-command/</guid><pubDate>Sat, 21 Oct 2023 00:00:00 GMT</pubDate><content:encoded>&lt;h2&gt;Git 기본 명령어&lt;/h2&gt;
-&lt;ul&gt;
-&lt;li&gt;
-&lt;p&gt;기본 용어 설명&lt;/p&gt;
-&lt;blockquote&gt;
-&lt;p&gt;Git에서는 아래 3개의 Tree(트리) 데이터를 이용하여 버전 관리를 수행 함
-&lt;br/&gt; HEAD(헤드) : 마지막 커밋 스냅 샷, 다음 커밋의 부모 커밋
-&lt;br/&gt; Index(인덱스) : 다음에 커밋 할 스냅 샷, Staging Area에 저장.
-&lt;br/&gt; Working Directory(작업 디렉토리) : 샌드박스
-&lt;br/&gt; Git Directory : Git 로컬 저장소, Staging Area와 커밋 데이터의 영구 저장공간&lt;/p&gt;
-&lt;/blockquote&gt;
-&lt;/li&gt;
-&lt;/ul&gt;
-&lt;div class=&quot;gatsby-highlight&quot; data-language=&quot;text&quot;&gt;&lt;pre class=&quot;language-text&quot;&gt;&lt;code class=&quot;language-text&quot;&gt;git init&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
-&lt;p&gt;폴더에 Git Directory를 생성, .git 폴더가 생성됨&lt;/p&gt;
-&lt;div class=&quot;gatsby-highlight&quot; data-language=&quot;text&quot;&gt;&lt;pre class=&quot;language-text&quot;&gt;&lt;code class=&quot;language-text&quot;&gt;git status&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
-&lt;p&gt;git의 저장소 트리 상태에 대한 비교 정보를 출력, 작업 디렉토리와 인덱스, 인덱스와 헤드를 비교하여 출력함.
-&lt;br&gt; 작업 디렉토리와 인덱스와의 차이는 빨간색으로, 인덱스와 헤드와의 차이는 녹색으로 표시됨&lt;/p&gt;
-&lt;div class=&quot;gatsby-highlight&quot; data-language=&quot;text&quot;&gt;&lt;pre class=&quot;language-text&quot;&gt;&lt;code class=&quot;language-text&quot;&gt;.gitignore&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
-&lt;p&gt;현재 작업 디렉토리에서 관리할 필요가 없는 파일 혹은 폴더 정보를 설정, 해당 파일에 포함된 대상은 버전 관리에서 제외됨
-(static 파일, node 등 library 공통모듈 등)&lt;/p&gt;
-&lt;div class=&quot;gatsby-highlight&quot; data-language=&quot;text&quot;&gt;&lt;pre class=&quot;language-text&quot;&gt;&lt;code class=&quot;language-text&quot;&gt;git add -A or git add .&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
-&lt;p&gt;작업 디렉토리의 변경 내용으로 인덱스 트리에 반영(스냅 샷)&lt;/p&gt;
-&lt;div class=&quot;gatsby-highlight&quot; data-language=&quot;text&quot;&gt;&lt;pre class=&quot;language-text&quot;&gt;&lt;code class=&quot;language-text&quot;&gt;git commit&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
-&lt;p&gt;인덱스 트리에 등록된 내용을 저장소에 영구적으로 저장하고 헤드가 해당 스냅샷을 가르키게 됨.&lt;/p&gt;
-&lt;blockquote&gt;
-&lt;p&gt;-m &quot;코멘트&quot; : 텍스트 편집기를 사용하지 않고 커밋 코멘트 추가
-&lt;br/&gt; --amend : 마지막 커밋 내용에 현재 수정 사항 반영&lt;/p&gt;
-&lt;/blockquote&gt;
-&lt;div class=&quot;gatsby-highlight&quot; data-language=&quot;text&quot;&gt;&lt;pre class=&quot;language-text&quot;&gt;&lt;code class=&quot;language-text&quot;&gt;git reset --mixed HEAD~ or [hash값]&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
-&lt;p&gt;헤드가 가리키는 커밋 포인터를 이동 시킨 후(롤백), 인덱스의 스냅 샷을 헤드가 가리키는 커밋으로 업데이트 함. git commit과 git add 명령을 롤백 &lt;/p&gt;
-&lt;blockquote&gt;
-&lt;p&gt;--mixed : 플래그가 없는 경우 기본 동작
-&lt;br/&gt; --soft : 헤드의 포인터만 이동시키고 인덱스 스냅샷을 업데이트 하지는 않음
-&lt;br/&gt; --hard : 워킹 디렉토리의 내용까지 업데이트, 커밋하지 않은 모든 내용 삭제됨 (주의~)
-&lt;br/&gt; HEAD^ : 최신 커밋, HEAD~n : n번째 커밋으로 롤백
-&lt;br/&gt; hash값 : 해시 값에 해당하는 특정 커밋으로 롤백&lt;/p&gt;
-&lt;/blockquote&gt;
-&lt;div class=&quot;gatsby-highlight&quot; data-language=&quot;text&quot;&gt;&lt;pre class=&quot;language-text&quot;&gt;&lt;code class=&quot;language-text&quot;&gt;git revert hash&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
-&lt;p&gt;특정 커밋으로 되돌리는 명령어, 커밋 취소에 대한 이력이 추가 됨, 원격 저장소에 커밋 후 푸시된 내용을 취소시 협업 중인 경우 revert로 실행. 로컬에서만 취소하는 경우 reset 사용&lt;/p&gt;
-&lt;div class=&quot;gatsby-highlight&quot; data-language=&quot;text&quot;&gt;&lt;pre class=&quot;language-text&quot;&gt;&lt;code class=&quot;language-text&quot;&gt;git log&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
-&lt;p&gt;커밋 관련 로그 표시, 현재 HEAD와 브랜 커밋 정보 표시&lt;/p&gt;
-&lt;blockquote&gt;
-&lt;p&gt;-p : 수정된 전체 내용 확인&lt;/p&gt;
-&lt;/blockquote&gt;
-&lt;div class=&quot;gatsby-highlight&quot; data-language=&quot;text&quot;&gt;&lt;pre class=&quot;language-text&quot;&gt;&lt;code class=&quot;language-text&quot;&gt;git diff&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
-&lt;p&gt;두 트리 개체의 차이 비교&lt;/p&gt;
-&lt;blockquote&gt;
-&lt;/blockquote&gt;
-&lt;div class=&quot;gatsby-highlight&quot; data-language=&quot;text&quot;&gt;&lt;pre class=&quot;language-text&quot;&gt;&lt;code class=&quot;language-text&quot;&gt;git rebase -i HEAD~n # HEAD 에서부터 n 번째 커밋 수정&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
-&lt;p&gt;여러개의 커밋 메시지 수정&lt;/p&gt;
-&lt;h2&gt;브랜치 관리&lt;/h2&gt;
-&lt;div class=&quot;gatsby-highlight&quot; data-language=&quot;text&quot;&gt;&lt;pre class=&quot;language-text&quot;&gt;&lt;code class=&quot;language-text&quot;&gt;git branch&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
-&lt;p&gt;로컬 브랜치 정보 출력, 브랜치 이름 앞에 * 표시된 브랜치가 checkout된 브랜치 임&lt;/p&gt;
-&lt;blockquote&gt;
-&lt;p&gt;-r : 원격 브랜치 정보 확인
-&lt;br/&gt; -a : 로컬 및 원격 브랜치 전체 확인 &lt;/p&gt;
-&lt;/blockquote&gt;
-&lt;div class=&quot;gatsby-highlight&quot; data-language=&quot;text&quot;&gt;&lt;pre class=&quot;language-text&quot;&gt;&lt;code class=&quot;language-text&quot;&gt;git branch [branch명]&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
-&lt;p&gt;새로운 브랜치 생성&lt;/p&gt;
-&lt;div class=&quot;gatsby-highlight&quot; data-language=&quot;text&quot;&gt;&lt;pre class=&quot;language-text&quot;&gt;&lt;code class=&quot;language-text&quot;&gt;git branch -d [branch명]&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
-&lt;p&gt;해당 브랜치 삭제&lt;/p&gt;
-&lt;blockquote&gt;
-&lt;p&gt;-D : 강제 삭제 플래그, 병합하지 않은 브랜치도 삭제 가능&lt;/p&gt;
-&lt;/blockquote&gt;
-&lt;div class=&quot;gatsby-highlight&quot; data-language=&quot;text&quot;&gt;&lt;pre class=&quot;language-text&quot;&gt;&lt;code class=&quot;language-text&quot;&gt;git checkout [branch명]&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
-&lt;p&gt;현재 작업 폴더를 해당 브랜치로 전환&lt;/p&gt;
-&lt;blockquote&gt;
-&lt;p&gt;-b : 브랜치 생성과 함께 해당 브랜치로 전환
-&lt;br/&gt; -t origin/[브랜치명] : 원격 브랜치를 가져와서 로컬 브랜치를 생성후 전환&lt;/p&gt;
-&lt;/blockquote&gt;
-&lt;div class=&quot;gatsby-highlight&quot; data-language=&quot;text&quot;&gt;&lt;pre class=&quot;language-text&quot;&gt;&lt;code class=&quot;language-text&quot;&gt;git merge [branch명]&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
-&lt;p&gt;지정한 브랜치와 현재 브랜치를 병합함&lt;/p&gt;
-&lt;h2&gt;임시 저장&lt;/h2&gt;
-&lt;div class=&quot;gatsby-highlight&quot; data-language=&quot;text&quot;&gt;&lt;pre class=&quot;language-text&quot;&gt;&lt;code class=&quot;language-text&quot;&gt;git stash&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
-&lt;p&gt;현재 작업 중인 변경사항을 커밋하지 않고 저장&lt;/p&gt;
-&lt;div class=&quot;gatsby-highlight&quot; data-language=&quot;text&quot;&gt;&lt;pre class=&quot;language-text&quot;&gt;&lt;code class=&quot;language-text&quot;&gt;git stash list&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
-&lt;p&gt;stash 했던 목록을 표시함&lt;/p&gt;
-&lt;div class=&quot;gatsby-highlight&quot; data-language=&quot;text&quot;&gt;&lt;pre class=&quot;language-text&quot;&gt;&lt;code class=&quot;language-text&quot;&gt;git stash drop [stash명]&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
-&lt;p&gt;저장한 stash를 삭제, 목록에 표시된 stash 중에 삭제 할 stash를 지정 &lt;/p&gt;
-&lt;h2&gt;원격 저장소 관련&lt;/h2&gt;
-&lt;ul&gt;
-&lt;li&gt;기본 용어 설명&lt;/li&gt;
-&lt;/ul&gt;
-&lt;blockquote&gt;
-&lt;p&gt;Remote branch : 원격 저장소의 브랜치
-&lt;br/&gt; Remote Tracking breanch : 원격 저장소의 브랜치를 참조하는 원격 브랜치의 복사본, 로컬 저장소에 위치 (origin/main)
-&lt;br/&gt; Tracking branch : 로컬 브랜치중에 원격 브랜치를 추적하는 브랜치&lt;/p&gt;
-&lt;/blockquote&gt;
-&lt;div class=&quot;gatsby-highlight&quot; data-language=&quot;text&quot;&gt;&lt;pre class=&quot;language-text&quot;&gt;&lt;code class=&quot;language-text&quot;&gt;git remote add origin https://github.com/[계정정보]/[저장소명]&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
-&lt;p&gt;원격 저장소를 설치하고 설치된 정보로 위 명령어 실행&lt;/p&gt;
-&lt;div class=&quot;gatsby-highlight&quot; data-language=&quot;text&quot;&gt;&lt;pre class=&quot;language-text&quot;&gt;&lt;code class=&quot;language-text&quot;&gt;git remote -v&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
-&lt;p&gt;현재 설정된 원격 저장소 정보 확인&lt;/p&gt;
-&lt;div class=&quot;gatsby-highlight&quot; data-language=&quot;text&quot;&gt;&lt;pre class=&quot;language-text&quot;&gt;&lt;code class=&quot;language-text&quot;&gt;git branch --set-upstream-to=[원격트래킹 브랜치]
-git branch -u [원격트래킹 브랜치]&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
-&lt;p&gt;현재 브랜치를 원격 트래킹 브랜치와 매핑 함.&lt;/p&gt;
-&lt;div class=&quot;gatsby-highlight&quot; data-language=&quot;text&quot;&gt;&lt;pre class=&quot;language-text&quot;&gt;&lt;code class=&quot;language-text&quot;&gt;git push or git push origin [저장소명]&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
-&lt;p&gt;원격 저장소를 현재 브랜치로 업데이트 함.&lt;/p&gt;
-&lt;blockquote&gt;
-&lt;p&gt;-f : 강제 업데이트&lt;/p&gt;
-&lt;/blockquote&gt;
-&lt;div class=&quot;gatsby-highlight&quot; data-language=&quot;text&quot;&gt;&lt;pre class=&quot;language-text&quot;&gt;&lt;code class=&quot;language-text&quot;&gt;git push origin :[브랜치명]&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
-&lt;p&gt;원격 브랜치 삭제&lt;/p&gt;
-&lt;div class=&quot;gatsby-highlight&quot; data-language=&quot;text&quot;&gt;&lt;pre class=&quot;language-text&quot;&gt;&lt;code class=&quot;language-text&quot;&gt;git remote update&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
-&lt;p&gt;모든 원격 저장소의 원격 참조 브랜치를 업데이트함. &lt;/p&gt;
-&lt;blockquote&gt;
-&lt;p&gt;-p : 참조되지 않은 사항 삭제&lt;/p&gt;
-&lt;/blockquote&gt;
-&lt;div class=&quot;gatsby-highlight&quot; data-language=&quot;text&quot;&gt;&lt;pre class=&quot;language-text&quot;&gt;&lt;code class=&quot;language-text&quot;&gt;git fetch&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
-&lt;p&gt;현재 로컬에 위치한 브랜치가 참조하는 원격 저장소의 모든 원격 참조 브랜치 정보를 업데이트 함.&lt;/p&gt;
-&lt;blockquote&gt;
-&lt;p&gt;-p : 참조되지 않은 사항 삭제
-&lt;br/&gt; --all : 모든 원격 저장소의 브랜치 정보를 업데이트
-&lt;br/&gt; * 원격 저장소에 있는 브랜치를 로컬에도 자동 생성, 단, 커밋 내용은 병합하지 않음&lt;/p&gt;
-&lt;/blockquote&gt;
-&lt;div class=&quot;gatsby-highlight&quot; data-language=&quot;text&quot;&gt;&lt;pre class=&quot;language-text&quot;&gt;&lt;code class=&quot;language-text&quot;&gt;git pull&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
-&lt;p&gt;원격 저장소의 내용을 업데이트하고 로컬 저장소에 변동 사항을 병합함, git fetch + git merge&lt;/p&gt;
-&lt;div class=&quot;gatsby-highlight&quot; data-language=&quot;text&quot;&gt;&lt;pre class=&quot;language-text&quot;&gt;&lt;code class=&quot;language-text&quot;&gt;git clone [원격저장소주소] [저장위치]&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
-&lt;p&gt;원격 저장소를 로컬에 복제&lt;/p&gt;</content:encoded></item></channel></rss>
+&lt;div class=&quot;gatsby-highlight&quot; data-language=&quot;text&quot;&gt;&lt;pre class=&quot;language-text&quot;&gt;&lt;code class=&quot;language-text&quot;&gt;frappe.cache().flushall()&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;h2&gt;5.6 Bench 업데이트&lt;/h2&gt;
+&lt;p&gt;bench update --bench 명령어가 삭제되어 아래 명령어로 실행&lt;/p&gt;
+&lt;div class=&quot;gatsby-highlight&quot; data-language=&quot;text&quot;&gt;&lt;pre class=&quot;language-text&quot;&gt;&lt;code class=&quot;language-text&quot;&gt;pip install --upgrade frappe-bench&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;</content:encoded></item></channel></rss>
